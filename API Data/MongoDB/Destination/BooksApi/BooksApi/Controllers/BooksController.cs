@@ -2,6 +2,9 @@
 using BooksApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System;
+using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BooksApi.Controllers
 {
@@ -16,7 +19,8 @@ namespace BooksApi.Controllers
             _bookService = bookService;
         }
 
-        [HttpGet]
+       [HttpGet]
+       [Authorize]
         public ActionResult<List<Book>> Get() =>
             _bookService.Get();
 
@@ -32,8 +36,14 @@ namespace BooksApi.Controllers
 
             return book;
         }
+        /*[HttpGet("secret")]
+        public IActionResult GetSecret()
+        {
+            return Ok("");
+        }*/
 
         [HttpPost]
+        [Authorize]
         public ActionResult<Book> Create(Book book)
         {
             _bookService.Create(book);
@@ -42,6 +52,7 @@ namespace BooksApi.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
+        [Authorize]
         public IActionResult Update(string id, Book bookIn)
         {
             var book = _bookService.Get(id);
@@ -57,6 +68,7 @@ namespace BooksApi.Controllers
         }
 
         [HttpDelete("{id:length(24)}")]
+        [Authorize]
         public IActionResult Delete(string id)
         {
             var book = _bookService.Get(id);

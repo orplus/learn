@@ -15,8 +15,11 @@ using Microsoft.Extensions.Logging;
 using BooksApi.Models.BooksApi.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
-using BooksApi.Security;
+//using BooksApi.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.AspNet.OData.Builder;
+using Microsoft.OData.Edm;
 
 namespace BooksApi
 {
@@ -44,7 +47,8 @@ namespace BooksApi
 
 			services.AddControllers()
 				.AddNewtonsoftJson(options => options.UseMemberCasing());
-
+			//OData
+			services.AddControllers(mvcOptions => mvcOptions.EnableEndpointRouting = false);
 			//Security
 
 			services.AddAuthentication(options =>
@@ -57,6 +61,10 @@ namespace BooksApi
 				options.Audience = "https://localhost:44387/";
 			});
 
+
+			//OData
+			services.AddMvc();
+			services.AddOData();
 			/*services.AddTransient<IAuthorizationHandler, ApiKeyRequirementHandler>();
 			services.AddAuthorization(authConfig =>
 			{
@@ -94,6 +102,28 @@ namespace BooksApi
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
+			});
+
+			/*app.UseMvc(routeBuilder =>
+			{
+				routeBuilder.Select().Filter().Expand();
+				routeBuilder.MapODataServiceRoute("odata", "odata", GetEdmModel());
+
+			});*/
+
+			var builder = new ODataConventionModelBuilder(app.ApplicationServices);
+
+			builder.EntitySet<Book>("Books");
+
+			app.UseMvc(routeBuilder =>
+			{
+				// and this line to enable OData query option, for example $filter
+				routeBuilder.Select().Expand().Filter().OrderBy().MaxTop(100).Count();
+
+				routeBuilder.MapODataServiceRoute("ODataRoute", "odata", builder.GetEdmModel());
+
+				// uncomment the following line to Work-around for #1175 in beta1
+				routeBuilder.EnableDependencyInjection();
 			});
 		}
 	}

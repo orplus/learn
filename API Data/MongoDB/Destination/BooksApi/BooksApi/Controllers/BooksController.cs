@@ -2,6 +2,10 @@
 using BooksApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System;
+using System.IO;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNet.OData;
 
 namespace BooksApi.Controllers
 {
@@ -17,23 +21,27 @@ namespace BooksApi.Controllers
         }
 
         [HttpGet]
+        [EnableQuery]
+        [Authorize]
         public ActionResult<List<Book>> Get() =>
-            _bookService.Get();
+                _bookService.Get();
 
-        [HttpGet("{id:length(24)}", Name = "GetBook")]
-        public ActionResult<Book> Get(string id)
-        {
-            var book = _bookService.Get(id);
-
-            if (book == null)
+            [HttpGet("{id:length(24)}", Name = "GetBook")]
+            public ActionResult<Book> Get(string id)
             {
-                return NotFound();
-            }
+                var book = _bookService.Get(id);
 
-            return book;
-        }
+                if (book == null) 
+                {
+                    return NotFound();
+                }
+
+                return book;
+            }   
 
         [HttpPost]
+        [Authorize]
+        [EnableQuery]
         public ActionResult<Book> Create(Book book)
         {
             _bookService.Create(book);
@@ -42,6 +50,8 @@ namespace BooksApi.Controllers
         }
 
         [HttpPut("{id:length(24)}")]
+        [Authorize]
+        [EnableQuery]
         public IActionResult Update(string id, Book bookIn)
         {
             var book = _bookService.Get(id);
@@ -57,6 +67,8 @@ namespace BooksApi.Controllers
         }
 
         [HttpDelete("{id:length(24)}")]
+        [Authorize]
+        [EnableQuery]
         public IActionResult Delete(string id)
         {
             var book = _bookService.Get(id);

@@ -1,0 +1,145 @@
+<div>
+    <div class="ProductFormPartA">
+        <mat-form-field appearance="fill">
+            <mat-label>Product Id</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Barcode</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Brand</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Weight</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <br>
+    </div>
+    <div class="ProductFormPartB">
+        <mat-form-field appearance="fill">
+            <mat-label>Supplier Id</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Link</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="link">
+                <mat-option *ngFor="let link of links" [value]="link.value">
+                    {{link.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="category">
+                <mat-option *ngFor="let category of categories" [value]="category.value">
+                    {{category.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="hireDate" matInput [matDatepicker]="picker" placeholder="Hire Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <br>
+    </div>
+    <div class="buttons">
+        <button mat-raised-button color="primary">Add</button>
+        <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+    </div>
+</div>
+<!--
+<form [formGroup]="service.form" class="normal-form">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <mat-form-field appearance="fill">
+                <mat-label>Product Id</mat-label>
+                <input matInput>
+                <mat-error>Invalid product_id.</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Barcode</mat-label>
+                <input matInput>
+                <mat-error>Invalid barcode.</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Brand</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Price</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Weight</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field appearance="fill">
+                <mat-label>Supplier Id</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Link</mat-label>
+                <mat-select [(ngModel)]="selectedValue" name="link">
+                    <mat-option *ngFor="let link of links" [value]="link.value">
+                        {{link.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select [(ngModel)]="selectedValue" name="category">
+                    <mat-option *ngFor="let category of categories" [value]="category.value">
+                        {{category.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Expiry date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+            <br>
+            <mat-dialog-actions align="end">
+                <button mat-raised-button color="primary">Create</button>
+                <button mat-button mat-dialog-close>Cancel</button>
+                <button mat-raised-button color="warn " (click)="onClear() ">Clear</button>
+</mat-dialog-actions>
+</mat-grid-tile>
+</mat-grid-list>
+</form>
+-->

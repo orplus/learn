@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatDialogModule,
-  MatTableModule
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatDatepicker,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatInputModule
 } from '@angular/material';
 
 import { CommonModule } from '@angular/common';
@@ -19,10 +27,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 
-
 const MaterialComponents = [
   MatButtonModule,
   MatDialogModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatInputModule,
   MatTableModule
 ];
 

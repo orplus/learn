@@ -1,83 +1,108 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 export interface ProductTable {
-  position: number;
   productId: number;
-  name: string;
-  /*brand: string;
-  description: string;
   image: string;
+  name: string;
+  description: string;
   price: number;
-  supplierId: number;
-  link: string;
-  category: string;
-  barcode: number;
   weight: number;
-  expiryDate: number;
-  */
+  expiryDate: Date;
+  barcode: number;
+  brand: string;
+  category: string;
+  supplierId: number;
 }
 
 const ELEMENT_DATA: ProductTable[] = [
-  {position: 1, productId: 10, name: 'Cheese'},
-  {position: 2, productId: 20, name: 'Cheese'},
-  {position: 3, productId: 30, name: 'Cheese'},
-  {position: 4, productId: 40, name: 'Cheese'},
-  {position: 5, productId: 50, name: 'Cheese'},
-  {position: 6, productId: 60, name: 'Cheese'},
-  {position: 7, productId: 70, name: 'Cheese'},
-  {position: 8, productId: 80, name: 'Cheese'},
-  {position: 9, productId: 90, name: 'Cheese'},
-  {position: 10, productId: 100, name: 'Cheese'}
+  {
+    productId: 1, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 2, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 3, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 4, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 5, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 6, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 7, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 8, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 9, image: 'cheese.svg', name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
+  {
+    productId: 10,image: 'cheese.svg',  name: 'Cheese', description: 'aabb',
+    price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
+    brand: 'Kraft', category: 'dairy', supplierId: 20000
+  },
 ];
-/*const ELEMENT_DATA: ProductTable[] = [
-  {position: 1, productId: 000001, name: 'Cheese', brand: 'Kraft',
-  description: 'aabb', image: 'cheese.jpg', price: 64.93,
-  supplierId: 01000, link: 'winners.mu', category: 'dairy', barcode: 111222333,
-  weight: 250, expiryDate: 04/08/2020},
-  {position: 2, productId: 000001, name: 'Cheese', brand:
-  'Kraft', description: 'aabb', image: 'cheese.jpg', price: 64.93,
-   supplierId: 01000, link: 'winners.mu', category: 'dairy', barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-  {position: 3, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu', category: 'dairy', barcode: 111222333,
-    weight: 250, expiryDate: 04/08/2020},
-  {position: 4, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu',
-    category: 'dairy', barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-  {position: 5, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu',
-    category: 'dairy', barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-  {position: 6, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu',
-    category: 'dairy', barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-  {position: 7, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu', category: 'dairy',
-    barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-  {position: 8, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu', category: 'dairy',
-    barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-  {position: 9, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu', category: 'dairy',
-    barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-  {position: 10, productId: 000001, name: 'Cheese', brand: 'Kraft', description: 'aabb',
-   image: 'cheese.jpg', price: 64.93, supplierId: 01000, link: 'winners.mu', category: 'dairy',
-    barcode: 111222333, weight: 250, expiryDate: 04/08/2020},
-];
-*/
-@Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
-})
+
 export class ProductComponent implements OnInit {
-  /* displayedColumns: string[] = ['position', 'productId', 'name',
-  'brand', 'description', 'image', 'price', 'supplierId', 'link',
-  'category', 'barcode', 'weight', 'expiryDate'];
-  */
-  displayedColumns: string[] = ['position', 'productId', 'name'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  displayedColumns: string[] = ['productId', 'image', 'name', 'description',
+  'price', 'weight', 'expiryDate', 'barcode', 'brand', 'category', 'supplierId',
+  'edit', 'archive', 'delete'];
+
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
+  public removeRow(row: any): void {
+    console.log(row);
+    ELEMENT_DATA.forEach((element, index) => {
+      if (element.productId === row.productId) {
+        ELEMENT_DATA.splice(index, 1);
+      }
+    });
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(ProductFormComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

@@ -7,12 +7,13 @@ import { UserComponent } from './users/user/user.component';
 import { ProductComponent } from './product/product.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ListComponent } from './product/list/list.component';
+import { UserListComponent } from './users/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'counter', component: CounterComponent },
   { path: 'fetch-data', component: FetchDataComponent },
-  { path: 'user', component: UserComponent },
+  { path: 'user-list', component: UserListComponent },
   { path: 'product', component: ProductComponent },
   { path: 'productForm', component: ProductFormComponent },
   { path: 'list', component: ListComponent}

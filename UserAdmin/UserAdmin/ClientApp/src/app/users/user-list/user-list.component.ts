@@ -16,8 +16,9 @@ export class UserListComponent {
 
     displayedColumns = ['id', 'firstname', 'lastname', 'city', 'gender', 'email', 'lastConnected', 'actions'];
     dataSource = USER_DATA;
-    @ViewChild(MatSort) sort: MatSort;
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatSort, {static: true}) sort: MatSort;
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
     searchKey: string;
 
     constructor(

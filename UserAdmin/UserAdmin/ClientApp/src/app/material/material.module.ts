@@ -1,68 +1,27 @@
 import { NgModule } from '@angular/core';
-import {
-  MatButtonModule,
-  MatDialogModule,
-  MatTableModule,
-  MatSortModule,
-  MatPaginatorModule,
-  MatFormFieldModule,
-  MatSelectModule,
-  MatDatepicker,
-  MatNativeDateModule,
-  MatDatepickerModule,
-  MatInputModule
-} from '@angular/material';
-
-import { CommonModule } from '@angular/common';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { MatNativeDateModule } from '@angular/material/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-
-const MaterialComponents = [
-  MatButtonModule,
-  MatDialogModule,
-  MatTableModule,
-  MatSortModule,
-  MatPaginatorModule,
-  MatFormFieldModule,
-  MatSelectModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatInputModule,
-  MatTableModule
-];
+import { MatButtonModule, MatDialogModule, MatTableModule, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatToolbarModule, MatGridListModule, MatRadioModule, MatCheckboxModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
   imports: [
-    MaterialComponents,
-    MatToolbarModule,
-    MatGridListModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatCheckboxModule,
     MatNativeDateModule,
-    MatButtonModule,
-    MatTableModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatCheckboxModule,
     MatIconModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatDialogModule
   ],
+  
   exports: [
-    MaterialComponents,
     MatToolbarModule,
     MatGridListModule,
     MatFormFieldModule,

@@ -1,0 +1,7 @@
+::ng-deep .mat-sort-header-button {
+    outline: none!important;
+}
+
+table {
+    width: 100%;
+}

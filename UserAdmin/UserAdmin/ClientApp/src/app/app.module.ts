@@ -13,11 +13,11 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductComponent } from './product/product.component';
 import { MaterialModule } from './material/material.module';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ListComponent } from './product/list/list.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +28,9 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     UsersComponent,
     UserComponent,
     FetchDataComponent,
-    ProductComponent,
     ProductFormComponent,
     UserListComponent,
+    ProductComponent,
     ListComponent,
     MatConfirmDialogComponent
   ],

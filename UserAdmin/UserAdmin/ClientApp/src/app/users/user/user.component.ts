@@ -17,18 +17,18 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-onSubmit() {
-  if (this.service.form.valid) {
+  onSubmit() {
+    if (this.service.form.valid) {
+      this.service.form.reset();
+      this.service.initializeFormGroup();
+    }
+  }
+
+  onClose() {
     this.service.form.reset();
     this.service.initializeFormGroup();
+    this.dialogRef.close();
   }
-}
-
-onClose() {
-  this.service.form.reset();
-  this.service.initializeFormGroup();
-  this.dialogRef.close();
-}
 
   onClear() {
     this.service.form.reset();

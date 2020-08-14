@@ -69,6 +69,11 @@ const ELEMENT_DATA: ProductTable[] = [
   },
 ];
 
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
+})
 export class ProductComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
@@ -87,7 +92,7 @@ export class ProductComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  public removeRow(row: any): void {
+  removeRow(row: any): void {
     console.log(row);
     ELEMENT_DATA.forEach((element, index) => {
       if (element.productId === row.productId) {
@@ -98,6 +103,7 @@ export class ProductComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
+
   openDialog() {
     const dialogRef = this.dialog.open(ProductFormComponent);
 

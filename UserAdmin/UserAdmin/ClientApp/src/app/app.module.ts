@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersComponent } from './users/users.component';
@@ -43,17 +42,7 @@ import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dial
     MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'user', component: UserComponent },
-      { path: 'product', component: ProductComponent },
-      { path: 'productForm', component: ProductFormComponent },
-      { path: 'list', component: ListComponent}
-    ]),
-    BrowserAnimationsModule,
-    MaterialModule
+    AppRoutingModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent],

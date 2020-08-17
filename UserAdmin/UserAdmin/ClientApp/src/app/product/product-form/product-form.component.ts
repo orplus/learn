@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductTable } from '../product.component';
+import { MatDialogRef } from '@angular/material';
 
 
 interface Category {
@@ -14,29 +16,44 @@ interface Category {
 export class ProductFormComponent implements OnInit {
   selectedValue: string;
 
+  public addProductForm: ProductTable;
+
   categories: Category[] = [
-    {value: 'category-0', viewValue: 'Grocery'},
-    {value: 'category-1', viewValue: 'Dairy'},
-    {value: 'category-2', viewValue: 'Frozen'}
+    { value: 'category-0', viewValue: 'Grocery' },
+    { value: 'category-1', viewValue: 'Dairy' },
+    { value: 'category-2', viewValue: 'Frozen' }
   ];
   service: any;
-  ELEMENT_DATA: any;
-  constructor() { }
+  constructor(
+    private dialogRef: MatDialogRef<ProductFormComponent>
+  ) { }
 
   ngOnInit() {
+    this.initialiseAddProductForm();
   }
 
-  // onClear() {
-  //   this.service.form.reset();
-  //   this.service.initializeFormGroup();
-  // }
+  private initialiseAddProductForm() {
+    this.addProductForm = {
+      productId: null,
+      image: null,
+      name: null,
+      description: null,
+      price: null,
+      weight: null,
+      expiryDate: null,
+      barcode: null,
+      brand: null,
+      category: null,
+      supplierId: null
+    };
+  }
+
   onClose() {
-     this.service.form.close();
-     this.service.initializeFormGroup();
+    this.service.form.close();
+    this.service.initializeFormGroup();
   }
 
   addNew() {
-    this.ELEMENT_DATA.push(this.ELEMENT_DATA.length + 1);
-    console.log(this.ELEMENT_DATA);
+    this.dialogRef.close(this.addProductForm);
   }
 }

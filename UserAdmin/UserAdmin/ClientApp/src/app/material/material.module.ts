@@ -1,5 +1,22 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatDialogModule, MatTableModule, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatInputModule, MatToolbarModule, MatGridListModule, MatRadioModule, MatCheckboxModule, MatIconModule } from '@angular/material';
+
+import {
+  MatButtonModule,
+  MatDialogModule,
+  MatTableModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatGridListModule,
+  MatRadioModule,
+  MatCheckboxModule,
+  MatIconModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -20,7 +37,7 @@ import { MatButtonModule, MatDialogModule, MatTableModule, MatSortModule, MatPag
     MatCheckboxModule,
     MatIconModule,
   ],
-  
+
   exports: [
     MatToolbarModule,
     MatGridListModule,

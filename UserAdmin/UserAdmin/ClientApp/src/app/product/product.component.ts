@@ -63,7 +63,7 @@ const ELEMENT_DATA: ProductTable[] = [
     brand: 'Kraft', category: 'dairy', supplierId: 20000
   },
   {
-    productId: 10,image: 'cheese.svg',  name: 'Cheese', description: 'aabb',
+    productId: 10, image: 'cheese.svg',  name: 'Cheese', description: 'aabb',
     price: 64.93, weight: 250, expiryDate: new Date(4 / 8 / 2020), barcode: 111222333,
     brand: 'Kraft', category: 'dairy', supplierId: 20000
   },

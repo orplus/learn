@@ -107,11 +107,36 @@ mat-radio-group mat-radio-button{
 }
 
 .search-form-field{
-  width: 70%;
+  width: 50%;
   margin-left: 10px;
   padding: 5px 10px;
   background-color: lightsteelblue;
   border-radius: 5px;
+}
+
+.filter-form-field{
+  width: 50%;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: lightskyblue;
+  border-radius: 5px;
+}
+
+.filter-form-field div.mat-form-field-underline{
+  display: none;
+}
+
+.filter-form-field div.mat-form-field-infix{
+border-top: 0px;
+}
+
+.filter-form-field div.mat-form-field-wrapper{
+  padding-bottom: 0px;
+}
+
+.filter-form-field div.mat-form-field-suffix button{
+  height: 32px;
+  width: 32px;
 }
 
 .search-form-field div.mat-form-field-underline{

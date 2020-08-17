@@ -8,6 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ListComponent } from './product/list/list.component';
 import { UserListComponent } from './users/user-list/user-list.component';
+import { EditFormComponent } from './product/edit-form/edit-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
   { path: 'product', component: ProductComponent },
   { path: 'productForm', component: ProductFormComponent },
-  { path: 'list', component: ListComponent}
+  { path: 'list', component: ListComponent },
+  { path: 'editForm', component: EditFormComponent }
 ];
 
 @NgModule({

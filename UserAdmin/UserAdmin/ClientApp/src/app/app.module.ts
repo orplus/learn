@@ -18,6 +18,7 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ListComponent } from './product/list/list.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 import { ProductComponent } from './product/product.component';
+import { EditFormComponent } from './product/edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductComponent } from './product/product.component';
     UserListComponent,
     ProductComponent,
     ListComponent,
-    MatConfirmDialogComponent
+    MatConfirmDialogComponent,
+    EditFormComponent
   ],
 
   imports: [

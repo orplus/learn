@@ -1,0 +1,97 @@
+<div class="search-div">
+
+  <button mat-raised-button (click)="openDialog()" color="primary">
+    <mat-icon>add</mat-icon>Create
+  </button>
+  <!-- <mat-form-field class="search-form-field" floatLabel='never'>
+    <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <span></span> <br> -->
+  <mat-form-field class="filter-form-field" floatLabel='never'>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" autocomplete="off">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<div class="mat-elevation-z8">
+  <div class="example-container mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID.</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Mobile </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastConnected">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Connected </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastConnected}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="onEdit(row)"><mat-icon>edit</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="onDelete(row)"  (click)="openSnackBar(message.value, action.value)"><mat-icon>delete_outline</mat-icon></button>
+          <button mat-icon-button color="accent"><mat-icon>archive</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-form-field>
+        <mat-label>Message</mat-label>
+        <input matInput value="Disco party!" #message>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Action</mat-label>
+        <input matInput value="Dance" #action>
+      </mat-form-field>
+
+
+      <ng-container matColumnDef="loading">
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        Loading data...
+      </mat-footer-cell>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <mat-footer-row *matFooterRowDef="['loading']"></mat-footer-row>
+    </table>
+  </div>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons [pageSize]="5"></mat-paginator>
+</div>

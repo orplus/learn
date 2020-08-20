@@ -39,7 +39,7 @@ export class UserService {
   }
 
   deleteEmployee($key: string) {
-this.employeeList.remove($key);
+    this.employeeList.remove($key);
   }
 
 }

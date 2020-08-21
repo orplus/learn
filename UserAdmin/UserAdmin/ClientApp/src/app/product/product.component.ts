@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { HttpClient } from '@angular/common/http';
 
 export interface ProductTable {
-  productId: number;
+  productId?: number;
   image: string;
   name: string;
   description: string;
@@ -76,7 +77,9 @@ const ELEMENT_DATA: ProductTable[] = [
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+  private httpClient: HttpClient)
+  { }
 
   displayedColumns: string[] = ['productId', 'image', 'name', 'description',
   'price', 'weight', 'expiryDate', 'barcode', 'brand', 'category', 'supplierId',
@@ -91,6 +94,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.getProducts().then((data) => { console.log(data) });
   }
 
   removeRow(row: any): void {
@@ -126,5 +130,9 @@ export class ProductComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  public async getProducts() {
+    return await this.httpClient.get(`https://localhost:44398/api/Products?&api-version=1.0&%24count=true`).toPromise();
   }
 }

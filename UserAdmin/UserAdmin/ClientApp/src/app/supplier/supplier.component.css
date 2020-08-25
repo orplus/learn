@@ -1,0 +1,30 @@
+h2 {
+  display: flex;
+  height: 40px;
+  background-color: #a090fa;
+  justify-content: center;
+}
+
+::ng-deep .mat-sort-header-button {
+  outline: none !important;
+}
+
+table {
+  width: 100%;
+  justify-self: center;
+}
+
+img {
+  width: 25px;
+}
+
+
+/* .mat-header-cell {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mat-cell {
+    text-align: center;
+    justify-content: center;
+} */

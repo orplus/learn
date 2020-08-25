@@ -9,6 +9,8 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ListComponent } from './product/list/list.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { EditFormComponent } from './product/edit-form/edit-form.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplierFormComponent } from './supplier/supplier-form/supplier-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
   { path: 'product', component: ProductComponent },
   { path: 'productForm', component: ProductFormComponent },
+  { path: 'supplier', component: SupplierComponent },
+  { path: 'SupplierForm', component: SupplierFormComponent },
   { path: 'list', component: ListComponent },
   { path: 'editForm', component: EditFormComponent }
 ];

@@ -31,7 +31,7 @@ export class EditFormComponent implements OnInit {
   onEdit() {
 
   }
-/*  openDialog(action,obj) {
+  openDialog(action,obj) {
     obj.action = action;
     const dialogRef = this.dialog.open(EditFormComponent, {
       data : obj
@@ -53,7 +53,7 @@ export class EditFormComponent implements OnInit {
 addRowData(row_obj){
   var d = new Date();
   this.dataSource.push({
-    productId:d.getTime(),
+    supplierID:d.getTime(),
     name:row_obj.name
   });
   this.table.renderRows();
@@ -67,5 +67,5 @@ updateRowData(row_obj){
     return true;
   });
 }
-*/
+
 }

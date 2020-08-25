@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { SupplierService } from '../shared/supplier.service';
 import { Supplier } from '../supplier';
 
-export interface SupplierTable {
+/*export interface SupplierTable {
   id: string;
   supplierID: number;
   name: string;
@@ -18,7 +18,7 @@ export interface SupplierTable {
   street: string;
   state: string;
   zip: number;
-}
+}*/
 
 /*const ELEMENT_DATA: SupplierTable[] = [
   {
@@ -82,10 +82,10 @@ export class SupplierComponent implements OnInit {
   constructor(public dialog: MatDialog,
      private apiService: SupplierService ) { }
 
-  supplier :  Supplier[];
+  supplier: Supplier[];
   ELEMENT_DATA: Supplier[];
   displayedColumns = ['id', 'supplierID', 'name', 'location',
-    'telephone', 'link', 'workAddress', 'city', 'street', 'state', 'zip'];
+    'telephone', 'link', 'workAddress', 'city', 'street', 'state', 'zip', 'edit', 'archive', 'delete'];
 
  dataSource = new MatTableDataSource<Supplier>(this.ELEMENT_DATA);
 
@@ -93,37 +93,28 @@ export class SupplierComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
-   
-    
-    
+
     //this.getSuppliers().then((data) => { console.log(data) });
     this.getSuppliersList();
     //this.getSuppliers();
   }
 
 
-  /*removeRow(row: any): void {
+  removeRow(row: any): void {
     console.log(row);
-    ELEMENT_DATA.forEach((element, index) => {
+    this.ELEMENT_DATA.forEach((element, index) => {
       if (element.supplierID === row.supplierID) {
-        ELEMENT_DATA.splice(index, 1);
+        this.ELEMENT_DATA.splice(index, 1);
       }
     });
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
   openCreateDialog() {
-    const dialogRef = this.dialog.open(SupplierFormComponent);
-
-    dialogRef.afterClosed().subscribe((result: SupplierTable) => {
-      ELEMENT_DATA.push(result);
-      this.dataSource = new MatTableDataSource(ELEMENT_DATA);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    });
-  }*/
+    this.dialog.open(SupplierFormComponent);
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -146,7 +137,6 @@ export class SupplierComponent implements OnInit {
       .getSuppliers()
       .subscribe((data: any) => {
         console.log(data);
-        //this.supplier = data.data;
         this.dataSource = new MatTableDataSource(data.value);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

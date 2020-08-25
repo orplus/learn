@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SupplierTable } from '../supplier.component';
 import { MatDialogRef } from '@angular/material';
+import { Supplier } from '../../supplier';
+import { HttpClient } from '@angular/common/http';
+import { SupplierService } from '../../shared/supplier.service';
 
 
 interface Category {
@@ -16,11 +18,14 @@ interface Category {
 export class SupplierFormComponent implements OnInit {
   selectedValue: string;
 
-  public addSupplierForm: SupplierTable;
+  supplier: Supplier = {} as Supplier;
+
+
+  public addSupplierForm: Supplier;
   service: any;
   constructor(
-    private dialogRef: MatDialogRef<SupplierFormComponent>
-  ) { }
+    private dialogRef: MatDialogRef<SupplierFormComponent>, public http: HttpClient,
+    private apiService: SupplierService) { }
 
   ngOnInit() {
     this.initialiseAddSupplierForm();
@@ -48,6 +53,12 @@ export class SupplierFormComponent implements OnInit {
   }
 
   addNew() {
-    this.dialogRef.close(this.addSupplierForm);
+    console.log(this.supplier);
+    this.apiService.createSuppliers(this.supplier).subscribe((res) => {
+    });
+    this.dialogRef.close();
+    this.apiService.getSuppliers();
   }
+
+ 
 }

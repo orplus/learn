@@ -6,6 +6,7 @@ import { map, catchError } from 'rxjs/operators';
 import { Supplier } from "../supplier";
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,11 @@ export class SupplierService {
           return throwError('Something went wrong!');
         })
       )
+  }
+
+  createSuppliers(supplier: Supplier) {
+      return this.httpClient.post(`https://localhost:44398/api/Supplier?&api-version=1.0&%24count=true`, supplier);
+  
   }
 
  /*public suppliersList() {

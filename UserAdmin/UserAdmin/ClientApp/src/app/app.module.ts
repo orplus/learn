@@ -19,6 +19,7 @@ import { ListComponent } from './product/list/list.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 import { ProductComponent } from './product/product.component';
 import { EditFormComponent } from './product/edit-form/edit-form.component';
+import { ProductService } from './shared/product.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { EditFormComponent } from './product/edit-form/edit-form.component';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, ProductService],
   bootstrap: [AppComponent],
   entryComponents: [UserComponent, MatConfirmDialogComponent]
 })

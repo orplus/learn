@@ -9,6 +9,9 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ListComponent } from './product/list/list.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { EditFormComponent } from './product/edit-form/edit-form.component';
+import { ProductService } from './shared/product.service';
+
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -23,6 +26,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ProductService],
+  bootstrap: [ProductComponent]
 })
 export class AppRoutingModule { }

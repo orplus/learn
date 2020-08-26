@@ -28,3 +28,9 @@ img {
     text-align: center;
     justify-content: center;
 } */
+
+::ng-deep .mat-button {
+    min-width: 30px !important;
+    line-height: 36px !important;
+    padding: 4px 4px !important;
+}

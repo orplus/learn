@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductTable } from '../product.component';
+import { ProductModel } from '../product.component';
 import { MatDialogRef } from '@angular/material';
 
 
@@ -16,7 +16,7 @@ interface Category {
 export class ProductFormComponent implements OnInit {
   selectedValue: string;
 
-  public addProductForm: ProductTable;
+  public addProductForm: ProductModel;
 
   categories: Category[] = [
     { value: 'category-0', viewValue: 'Grocery' },
@@ -24,6 +24,8 @@ export class ProductFormComponent implements OnInit {
     { value: 'category-2', viewValue: 'Frozen' }
   ];
   service: any;
+  ProductService: any;
+
   constructor(
     private dialogRef: MatDialogRef<ProductFormComponent>
   ) { }
@@ -34,17 +36,20 @@ export class ProductFormComponent implements OnInit {
 
   private initialiseAddProductForm() {
     this.addProductForm = {
-      productId: null,
+      id: null,
+      productID: null,
       image: null,
       name: null,
       description: null,
       price: null,
       weight: null,
-      expiryDate: null,
+      expiry_Date: null,
       barcode: null,
       brand: null,
       category: null,
-      supplierId: null
+      supplierID: null,
+      modifiedBy: null,
+      modifiedDate: null
     };
   }
 
@@ -56,4 +61,8 @@ export class ProductFormComponent implements OnInit {
   addNew() {
     this.dialogRef.close(this.addProductForm);
   }
+
+  // createProduct() {
+    // this.ProductService.createProducts(this.product).subscribe((res) => {});
+  // }
 }

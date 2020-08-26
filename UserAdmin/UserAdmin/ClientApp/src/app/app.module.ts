@@ -22,6 +22,7 @@ import { EditFormComponent } from './product/edit-form/edit-form.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { SupplierFormComponent } from './supplier/supplier-form/supplier-form.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

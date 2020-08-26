@@ -1,9 +1,17 @@
 <h2>Edit a product</h2><br>
 
 <div class="d-flex justify-content-between">
+    <div class="image">
+        <img mat-card-image src="../assets/images/cheese.svg" alt="Photo of cheese">
+    </div>
     <div class="ProductFormPartA">
         <mat-form-field appearance="fill">
-            <mat-label>Product Id</mat-label>
+            <mat-label>ID</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Product ID</mat-label>
             <input matInput>
         </mat-form-field>
         <br>
@@ -16,7 +24,9 @@
             <mat-label>Description</mat-label>
             <textarea matInput></textarea>
         </mat-form-field>
-        <br>
+    </div>
+    <br>
+    <div class="ProductFormPartB">
         <mat-form-field appearance="fill">
             <mat-label>Price</mat-label>
             <input matInput>
@@ -27,14 +37,13 @@
             <input matInput>
         </mat-form-field>
         <br>
-        <mat-form-field color="accent" appearance="fill">
+        <mat-form-field appearance="fill">
             <mat-label>Expiry Date</mat-label>
-            <input matInput [matDatepicker]="picker1">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-    </div>
-    <div class="ProductFormPartB">
+        <br>
         <mat-form-field appearance="fill">
             <mat-label>Barcode</mat-label>
             <input matInput>
@@ -44,10 +53,11 @@
             <mat-label>Brand</mat-label>
             <input matInput>
         </mat-form-field>
-        <br>
+    </div>
+    <div class="ProductFormPartC">
         <mat-form-field appearance="fill">
             <mat-label>Category</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="category">
+            <mat-select name="category">
                 <mat-option *ngFor="let category of categories" [value]="category.value">
                     {{category.viewValue}}
                 </mat-option>
@@ -55,16 +65,26 @@
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
-            <mat-label>Supplier Id</mat-label>
+            <mat-label>Supplier ID</mat-label>
             <input matInput>
         </mat-form-field>
         <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Modified By</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Modified Date</mat-label>
+            <input matInput [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button mat-raised-button color="primary" (click)="onEdit()">Save</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        </div>
     </div>
-    <div>
-        <img mat-card-image src="../assets/images/cheese.svg" alt="Photo of cheese">
-    </div>
-</div>
-<div class="d-flex justify-content-center">
-    <button mat-raised-button color="primary" (click)="onEdit()">Save</button>
-    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
 </div>

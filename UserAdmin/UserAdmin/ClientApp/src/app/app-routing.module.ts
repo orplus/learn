@@ -12,6 +12,7 @@ import { EditFormComponent } from './product/edit-form/edit-form.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { SupplierFormComponent } from './supplier/supplier-form/supplier-form.component';
 
+
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'counter', component: CounterComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 export class AppRoutingModule { }

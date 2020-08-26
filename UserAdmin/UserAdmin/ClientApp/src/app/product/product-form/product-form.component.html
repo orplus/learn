@@ -1,9 +1,17 @@
 <h2>Add a product</h2><br>
 <div class="d-flex justify-content-between">
+    <div class="image">
+        <img mat-card-image src="../assets/images/cheese.svg" alt="Photo of cheese">
+    </div>
     <div class="ProductFormPartA">
         <mat-form-field appearance="fill">
-            <mat-label>Product Id</mat-label>
-            <input matInput [(ngModel)]="addProductForm.productId">
+            <mat-label>ID</mat-label>
+            <input matInput [(ngModel)]="addProductForm.id">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Product ID</mat-label>
+            <input matInput [(ngModel)]="addProductForm.productID">
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
@@ -15,7 +23,9 @@
             <mat-label>Description</mat-label>
             <textarea matInput [(ngModel)]="addProductForm.description"></textarea>
         </mat-form-field>
-        <br>
+    </div>
+    <br>
+    <div class="ProductFormPartB">
         <mat-form-field appearance="fill">
             <mat-label>Price</mat-label>
             <input matInput [(ngModel)]="addProductForm.price">
@@ -25,14 +35,12 @@
             <mat-label>Weight</mat-label>
             <input matInput [(ngModel)]="addProductForm.weight">
         </mat-form-field>
-    </div>
-    <br>
-    <div class="ProductFormPartB">
-        <mat-form-field color="accent" appearance="fill">
+        <br>
+        <mat-form-field appearance="fill">
             <mat-label>Expiry Date</mat-label>
-            <input matInput [(ngModel)]="addProductForm.expiryDate" [matDatepicker]="picker1">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
+            <input matInput [(ngModel)]="addProductForm.expiry_Date" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
@@ -44,7 +52,8 @@
             <mat-label>Brand</mat-label>
             <input matInput [(ngModel)]="addProductForm.brand">
         </mat-form-field>
-        <br>
+    </div>
+    <div class="ProductFormPartC">
         <mat-form-field appearance="fill">
             <mat-label>Category</mat-label>
             <mat-select [(ngModel)]="addProductForm.category" name="category">
@@ -55,16 +64,26 @@
         </mat-form-field>
         <br>
         <mat-form-field appearance="fill">
-            <mat-label>Supplier Id</mat-label>
-            <input matInput [(ngModel)]="addProductForm.supplierId">
+            <mat-label>Supplier ID</mat-label>
+            <input matInput [(ngModel)]="addProductForm.supplierID">
         </mat-form-field>
         <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Modified By</mat-label>
+            <input matInput [(ngModel)]="addProductForm.modifiedBy">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Modified Date</mat-label>
+            <input matInput [(ngModel)]="addProductForm.modifiedDate" [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button mat-raised-button color="primary" (click)="addNew()" (click)="createProduct()">Add</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        </div>
     </div>
-    <div>
-        <img mat-card-image src="../assets/images/cheese.svg" alt="Photo of cheese">
-    </div>
-</div>
-<div class="d-flex justify-content-center">
-    <button mat-raised-button color="primary" (click)="addNew()">Add</button>
-    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
 </div>

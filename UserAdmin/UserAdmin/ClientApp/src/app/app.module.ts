@@ -19,7 +19,9 @@ import { ListComponent } from './product/list/list.component';
 import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
 import { ProductComponent } from './product/product.component';
 import { EditFormComponent } from './product/edit-form/edit-form.component';
-import { ProductService } from './shared/product.service';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplierFormComponent } from './supplier/supplier-form/supplier-form.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ProductService } from './shared/product.service';
     ProductComponent,
     ListComponent,
     MatConfirmDialogComponent,
-    EditFormComponent
+    EditFormComponent,
+    SupplierComponent,
+    SupplierFormComponent
   ],
 
   imports: [
@@ -47,7 +51,7 @@ import { ProductService } from './shared/product.service';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [UserService, ProductService],
+  providers: [UserService],
   bootstrap: [AppComponent],
   entryComponents: [UserComponent, MatConfirmDialogComponent]
 })

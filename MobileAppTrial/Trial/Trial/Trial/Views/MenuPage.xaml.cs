@@ -13,15 +13,15 @@ namespace Trial.Views
     public partial class MenuPage : ContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-        List<HomeMenuItem> menuItems;
+        List<HomeMenuItemModel> menuItems;
         public MenuPage()
         {
             InitializeComponent();
 
-            menuItems = new List<HomeMenuItem>
+            menuItems = new List<HomeMenuItemModel>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItemModel {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItemModel {Id = MenuItemType.About, Title="About" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
@@ -32,7 +32,7 @@ namespace Trial.Views
                 if (e.SelectedItem == null)
                     return;
 
-                var id = (int)((HomeMenuItem)e.SelectedItem).Id;
+                var id = (int)((HomeMenuItemModel)e.SelectedItem).Id;
                 await RootPage.NavigateFromMenu(id);
             };
         }

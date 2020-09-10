@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Trial.Models
 {
-    class User
+    class UserModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

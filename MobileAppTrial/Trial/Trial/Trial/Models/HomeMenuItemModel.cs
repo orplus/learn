@@ -9,7 +9,7 @@ namespace Trial.Models
         Browse,
         About
     }
-    public class HomeMenuItem
+    public class HomeMenuItemModel
     {
         public MenuItemType Id { get; set; }
 

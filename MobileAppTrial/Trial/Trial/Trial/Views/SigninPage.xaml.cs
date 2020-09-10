@@ -30,18 +30,18 @@ namespace Trial.Views
             };
         }
 
-        //async void OnSigninClicked(object sender, EventArgs e)
-        //{
-        //    if ( EntryUserEmail.Text == null && EntryUserPassword.Text == null)
-        //    {
-        //        await DisplayAlert("Log in failed", "Enter correct email and password", "Okay", "Cancel");
-        //    }
-        //    else
-        //    {
-                
-        //        await Navigation.PushAsync(new MainPage());
-        //    }
-        //}
+        async void signIn_Clicked(object sender, EventArgs e)
+        {
+            if (Email.Text == null && Password.Text == null)
+            {
+                await DisplayAlert("Log in failed", "Enter correct email and password", "Okay", "Cancel");
+            }
+            else
+            {
+
+                await Navigation.PushAsync(new MainPage());
+            }
+        }
 
         async void OnRegisterClicked(object sender, EventArgs e)
         {

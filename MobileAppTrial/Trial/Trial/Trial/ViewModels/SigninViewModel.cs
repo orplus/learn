@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using Trial.Views;
 using Xamarin.Forms;
 
 namespace Trial.ViewModels

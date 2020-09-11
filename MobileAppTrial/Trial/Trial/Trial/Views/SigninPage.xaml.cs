@@ -42,8 +42,7 @@ namespace Trial.Views
                 await Navigation.PushAsync(new MainPage());
             }
         }
-
-        async void OnRegisterClicked(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignupPage());
         }

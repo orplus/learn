@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Trial.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,7 @@ namespace Trial.Views
         public SignupPage()
         {
             InitializeComponent();
+            BindingContext = new SignupPageViewModel();
         }
 
         private void signUp_Clicked(object sender, EventArgs e)

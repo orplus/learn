@@ -1,25 +1,148 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              x:Class="Trial.Views.SignupPage">
-    <ContentPage.Content>
 
-        <AbsoluteLayout Margin="5,0,5,5">
-            <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
-                <Label Margin="0,0,0,10" Text="Register Now" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
+    <StackLayout BackgroundColor="#e6e6e6">
+        <Grid>
+            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                <Frame HeightRequest="150" BackgroundColor="DarkBlue" Padding="0" Margin="0">
+                    <StackLayout Margin="10">
+                        <Frame BackgroundColor="DarkBlue" 
+                               HeightRequest="45" 
+                               WidthRequest="45" 
+                               CornerRadius="45" 
+                               HasShadow="False" 
+                               BorderColor="DarkGray" 
+                               Margin="15,20" 
+                               HorizontalOptions="Start" 
+                               Padding="0">
+                            <Image Source="logo.jpeg" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
 
-                <Entry x:Name="EntryUserFirstName" ReturnType="Next" MaxLength="10" Placeholder="First Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
-                <Entry x:Name="EntryUserLastName" ReturnType="Next" MaxLength="10" Placeholder="Last Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
-                <Entry x:Name="EntryUserEmail" Placeholder="Email" ReturnType="Next" Keyboard="Email" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" ></Entry>
-                <Entry x:Name="EntryUserPassword" ReturnType="Next" MaxLength="12" IsPassword="True" Placeholder="Password" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" />
-                <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15" BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
+            <StackLayout Padding="0" Margin="10,100,10,0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="600" HasShadow="True" Padding="0" Margin="0">
 
-                <Button x:Name="signUp" Clicked="signUp_Clicked" FontSize="Medium" TextColor="WhiteSmoke" BorderColor="Black" BackgroundColor="CornflowerBlue"  CornerRadius="20" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Sign Up"/>
-                <Button x:Name="cancel" Clicked="Cancel_Clicked" FontSize="Medium" TextColor="WhiteSmoke" BorderColor="Black" BackgroundColor="PaleVioletRed"  CornerRadius="20" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Cancel"/>
-            </FlexLayout>
-        </AbsoluteLayout>
-    </ContentPage.Content>
+                    <StackLayout>
+                        <StackLayout Margin="50">
+                            <Label Text="Register Now" TextColor="Black" FontSize="20" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="15,10">
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry x:Name="FirstName" 
+                                           Text="{Binding FirstName}" 
+                                           Placeholder="First Name" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           Keyboard="Email" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry x:Name="LastName" 
+                                           Text="{Binding LastName}" 
+                                           Placeholder="Last Name" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           Keyboard="Email" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                    <Entry x:Name="Email" 
+                                           Text="{Binding Email}" 
+                                           Placeholder="Email" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           Keyboard="Email" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="0" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+                                    <Entry x:Name="Password" 
+                                           Text="{Binding Password}" 
+                                           Placeholder="Password" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           IsPassword="True"
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0"/>
+                                    <!--<local:CustomEntry Placeholder="Password" IsPassword="True" TextColor="Black" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"/>-->
+                                </StackLayout>
+                            </Frame>
+
+                            <StackLayout  Orientation="Horizontal">
+                                <CheckBox IsChecked="False" Color="DarkBlue" />
+                                <Label Text="Remember me" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                            </StackLayout>
+
+                            <!--<Button Text="LOG IN" BackgroundColor="DarkBlue" TextColor="White" CornerRadius="30" />-->
+                            <!--<Button Command ="{Binding SubmitCommand}" Text="LOG IN" BackgroundColor="DarkBlue" TextColor="White" CornerRadius="30"/>-->
+                            <Button x:Name="signUp" Clicked="signUp_Clicked_1" Text="Register" TextColor="White" BackgroundColor="DarkBlue"  CornerRadius="0"/>
+                            <!--<Button x:Name="cancel" Clicked="cancel_Clicked_1" Text="Cancel" TextColor="White" BackgroundColor="PaleVioletRed"  CornerRadius="0"/>-->
+                            
+                            <StackLayout Margin="0,25,0,0" Padding="0">
+                                <Grid>
+                                    <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                        <Label Text="OR" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                    <Image Source="https://www.pngitem.com/pimgs/m/44-440455_transparent-background-fb-logo-hd-png-download.png" Aspect="AspectFill" Margin="0"/>
+                                </Frame>
+                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                    <Image Source="https://blog.hubspot.com/hubfs/image8-2.jpg" Aspect="AspectFill" Margin="0"/>
+                                </Frame>
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
 </ContentPage>

@@ -85,12 +85,14 @@
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                 <Label Text="Still Not Connected ?" TextColor="DarkGray" FontSize="Small"/>
+
                                 <Label TextColor="DarkBlue" FontSize="Small" Text="Sign Up" FontAttributes="Bold">
                                     <Label.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                                     </Label.GestureRecognizers>
                                 </Label>
                                 <!--<Button x:Name="signUp" Clicked="signUp_Clicked" Text="Sign Up" TextColor="White" BackgroundColor="DarkBlue"  CornerRadius="0"/>-->
+
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0" Padding="0">

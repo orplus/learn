@@ -86,6 +86,8 @@
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                                 <Label Text="Still Not Connected ?" TextColor="DarkGray" FontSize="Small"/>
                                 <Label Text="Sign Up" TextColor="DarkBlue" FontAttributes="Bold" FontSize="Small"/>
+                                <Button x:Name="signUp" Clicked="signUp_Clicked" Text="Register" TextColor="White" BackgroundColor="DarkBlue"  CornerRadius="0"/>
+
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0" Padding="0">

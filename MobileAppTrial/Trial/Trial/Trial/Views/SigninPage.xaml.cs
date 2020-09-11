@@ -47,5 +47,9 @@ namespace Trial.Views
         {
             await Navigation.PushAsync(new SignupPage());
         }
+        async void signUp_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignupPage());
+        }
     }
 }

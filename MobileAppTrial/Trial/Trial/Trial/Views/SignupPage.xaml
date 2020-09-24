@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Trial.Views.SignupPage"
+             xmlns:behaviour="clr-namespace:Trial.Helpers.Behaviours"
+             xmlns:converter="clr-namespace:Trial.Helpers.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:InverseBoolConverter x:Key="InverseBoolConverter"/>
+            <converter:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+
+        <StackLayout BackgroundColor="#e6e6e6">
+        <Grid>
+            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+                <Frame HeightRequest="150" BackgroundColor="DarkBlue" Padding="0" Margin="0">
+                    <StackLayout Margin="10">
+                        <Frame BackgroundColor="DarkBlue" 
+                               HeightRequest="45" 
+                               WidthRequest="45" 
+                               CornerRadius="45" 
+                               HasShadow="False" 
+                               BorderColor="DarkGray" 
+                               Margin="15,20" 
+                               HorizontalOptions="Start" 
+                               Padding="0">
+                            <Image Source="logo.jpeg" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Padding="0" Margin="10,100,10,0" HorizontalOptions="FillAndExpand">
+                <Frame  BackgroundColor="White" HeightRequest="600" HasShadow="True" Padding="0" Margin="0">
+
+                    <StackLayout>
+                        <StackLayout Margin="50">
+                            <Label Text="Register Now" TextColor="Black" FontSize="20" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="15,10">
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                        <Entry x:Name="FirstName" 
+                                           Text="{Binding FirstName.Value}" 
+                                           Placeholder="First Name" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0">
+                                            <Entry.Behaviors>
+                                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding FirstName.IsValid}"/>
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                    <Label Text="{Binding FirstName.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding FirstName.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                         Style="{StaticResource ErrorTextStyle}"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                        <Entry x:Name="LastName" 
+                                           Text="{Binding LastName.Value}" 
+                                           Placeholder="Last Name" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0">
+                                            <Entry.Behaviors>
+                                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding LastName.IsValid}"/>
+                                        </Entry.Behaviors>
+                                    </Entry>
+
+                                    <Label Text="{Binding LastName.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding LastName.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                                        <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+
+                                        <Entry x:Name="Email" 
+                                           Text="{Binding Email.Value}" 
+                                           Placeholder="Email" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           Keyboard="Email" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0">
+                                            <Entry.Behaviors>
+                                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding Email.Item1.IsValid}"/>
+                                        </Entry.Behaviors>
+                                    </Entry>
+
+                                    <Label Text="{Binding Email.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Email.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="0" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+                                        <Entry x:Name="Password" 
+                                           Text="{Binding Password.Item1.Value}" 
+                                           Placeholder="Password" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           IsPassword="True"
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0">
+                                            <Entry.Behaviors>
+                                        <behaviour:EntryLineValidationBehaviour IsValid="{Binding Password.Item1.IsValid}"/>
+                                        </Entry.Behaviors>
+                                    </Entry>
+
+                                    <Label Text="{Binding Password.Item1.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Password.Item1.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Margin="0,15,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="SkyBlue" HeightRequest="40" WidthRequest="40" CornerRadius="0" Padding="0" Margin="5">
+                                        <Image Source="https://images.all-free-download.com/images/graphicthumb/lock_icon_6813906.jpg" Aspect="AspectFill" Margin="0"/>
+                                    </Frame>
+                                        <Entry x:Name="CPassword" 
+                                           Text="{Binding Password.Item2.Value}" 
+                                           Placeholder="Confirm Password" 
+                                           PlaceholderColor="Black" 
+                                           HeightRequest="40" 
+                                           TextColor="Black" 
+                                           FontAttributes="None" 
+                                           IsPassword="True"
+                                           HorizontalOptions="FillAndExpand" 
+                                           Margin="0,0,20,0">
+                                            <Entry.Behaviors>
+                                                <behaviour:EntryLineValidationBehaviour IsValid="{Binding Password.Item2.IsValid}"/>
+                                            </Entry.Behaviors>
+                                    </Entry>
+
+                                    <Label Text="{Binding Password.Item2.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding Password.Item2.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                                </StackLayout>
+                            </Frame>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding TermsAndCondition.Value}"/>
+                                <Label Text="I agree to the terms and conditions"
+                           VerticalOptions="Center"/>
+                            </StackLayout>
+
+                            <Label Text="{Binding TermsAndCondition.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                        IsVisible="{Binding TermsAndCondition.IsValid, Converter={StaticResource InverseBoolConverter}}"
+                        Style="{StaticResource ErrorTextStyle}"/>
+                            <!--/Terms And Condition-->
+
+                            <!--<Button Text="LOG IN" BackgroundColor="DarkBlue" TextColor="White" CornerRadius="30" />-->
+                            <!--<Button Command ="{Binding SubmitCommand}" Text="LOG IN" BackgroundColor="DarkBlue" TextColor="White" CornerRadius="30"/>-->
+                            <Button x:Name="signUp" Clicked="signUp_Clicked_1" Text="Register" TextColor="White" BackgroundColor="DarkBlue"  CornerRadius="0"/>
+                            <!--<Button x:Name="cancel" Clicked="cancel_Clicked_1" Text="Cancel" TextColor="White" BackgroundColor="PaleVioletRed"  CornerRadius="0"/>-->
+                            
+                            <StackLayout Margin="0,25,0,0" Padding="0">
+                                <Grid>
+                                    <BoxView BackgroundColor="DarkGray" HeightRequest="1" WidthRequest="150"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                        <Label Text="OR" TextColor="DarkGray" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                    </Frame>
+                                </Grid>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                    <Image Source="https://www.pngitem.com/pimgs/m/44-440455_transparent-background-fb-logo-hd-png-download.png" Aspect="AspectFill" Margin="0"/>
+                                </Frame>
+                                <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="45" CornerRadius="45" HasShadow="False" BorderColor="DarkGray" Margin="0" HorizontalOptions="Center" Padding="0">
+                                    <Image Source="https://blog.hubspot.com/hubfs/image8-2.jpg" Aspect="AspectFill" Margin="0"/>
+                                </Frame>
+                            </StackLayout>
+
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>
